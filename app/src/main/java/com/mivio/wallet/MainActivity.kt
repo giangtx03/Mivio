@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.mivio.wallet.core.navigation.AppNavigation
 import com.mivio.wallet.core.designsystem.theme.MivioTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

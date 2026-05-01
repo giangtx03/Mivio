@@ -1,4 +1,10 @@
 package com.mivio.wallet.data.di
 
-class DataModule {
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+
+@Module
+@InstallIn(SingletonComponent::class)
+object DataModule {
 }
