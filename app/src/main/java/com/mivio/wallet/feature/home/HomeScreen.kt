@@ -1,4 +1,4 @@
-package com.mivio.wallet.ui.feature.remider
+package com.mivio.wallet.feature.home
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ReminderScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Màn hình Nhắc nhở & Sổ chờ xử lý")
+        Text(text = "Màn hình Trang chủ & Sổ chờ xử lý")
     }
 }

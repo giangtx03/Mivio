@@ -7,11 +7,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mivio.wallet.ui.components.BottomNavigationBar
-import com.mivio.wallet.ui.feature.home.HomeScreen
-import com.mivio.wallet.ui.feature.remider.ReminderScreen
-import com.mivio.wallet.ui.feature.settings.SettingsScreen
-import com.mivio.wallet.ui.feature.stats.StatsScreen
+import com.mivio.wallet.core.designsystem.components.BottomNavigationBar
+import com.mivio.wallet.feature.home.HomeScreen
+import com.mivio.wallet.feature.reminder.ReminderScreen
+import com.mivio.wallet.feature.settings.SettingsScreen
+import com.mivio.wallet.feature.stats.StatsScreen
 
 @Composable
 fun AppNavigation() {

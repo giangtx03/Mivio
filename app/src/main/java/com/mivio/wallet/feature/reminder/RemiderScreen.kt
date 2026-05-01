@@ -1,4 +1,4 @@
-package com.mivio.wallet.ui.feature.stats
+package com.mivio.wallet.feature.reminder
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun StatsScreen(modifier: Modifier = Modifier) {
+fun ReminderScreen(modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Màn hình Thống kê & Sổ chờ xử lý")
+        Text(text = "Màn hình Nhắc nhở & Sổ chờ xử lý")
     }
 }

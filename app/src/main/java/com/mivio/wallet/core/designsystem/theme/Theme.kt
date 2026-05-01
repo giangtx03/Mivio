@@ -1,6 +1,5 @@
-package com.mivio.wallet.ui.theme
+package com.mivio.wallet.core.designsystem.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

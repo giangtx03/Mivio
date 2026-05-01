@@ -1,4 +1,4 @@
-package com.mivio.wallet.ui.feature.settings
+package com.mivio.wallet.feature.stats
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun SettingsScreen(modifier: Modifier = Modifier) {
+fun StatsScreen(modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Màn hình Cài đặt & Sổ chờ xử lý")
+        Text(text = "Màn hình Thống kê & Sổ chờ xử lý")
     }
 }

@@ -1,4 +1,4 @@
-package com.mivio.wallet.ui.components
+package com.mivio.wallet.core.designsystem.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
