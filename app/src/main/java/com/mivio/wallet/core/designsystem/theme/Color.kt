@@ -21,8 +21,12 @@ val TextHint = Color(0xFF9E9E9E)      // Xám nhạt (Placeholder trong ô nhậ
 val IncomeColor = Color(0xFF2E7D32)   // Xanh lá đậm (Tiền cộng vào)
 val ExpenseColor = Color(0xFFD32F2F)  // Đỏ (Tiền trừ đi)
 val WarningColor = Color(0xFFF57C00)  // Cam (Cảnh báo vượt ngân sách)
+val WarningBgColor = Color(0xFFFFCF80)  // Cam (Cảnh báo vượt ngân sách)
 
 // Màu Nền Danh mục (Category Backgrounds)
 val CatFood = Color(0xFFFFE0B2)       // Cam nhạt
 val CatHouse = Color(0xFFB2EBF2)      // Xanh dương nhạt
 val CatTransport = Color(0xFFE1BEE7)  // Tím nhạt
+
+// Màu border
+val BorderColor = Color(0xFF181818)

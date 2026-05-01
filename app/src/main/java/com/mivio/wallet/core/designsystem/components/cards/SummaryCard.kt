@@ -16,10 +16,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.mivio.wallet.core.designsystem.theme.Dimens
+import com.mivio.wallet.core.designsystem.theme.ExpenseColor
+import com.mivio.wallet.core.designsystem.theme.IncomeColor
+import com.mivio.wallet.core.designsystem.theme.Secondary
+import com.mivio.wallet.core.designsystem.theme.SurfaceVariant
+import com.mivio.wallet.core.designsystem.theme.TextPrimary
+import com.mivio.wallet.core.designsystem.theme.Typography
 import com.mivio.wallet.core.utils.formatAmount
 
 
@@ -29,21 +34,30 @@ fun SummaryCard(modifier: Modifier = Modifier, amount: Int = 16000000, spent: In
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .clip(shape = RoundedCornerShape(8.dp))
-            .background(Color.White)
-            .padding(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+            .clip(shape = RoundedCornerShape(Dimens.radius_large))
+            .background(Secondary)
+            .padding(Dimens.spacing_medium),
+        verticalArrangement = Arrangement.spacedBy(Dimens.spacing_medium),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(text = "Số dư hiện tại: ")
-            Text(text = "${(amount - spent).formatAmount()} VND", fontWeight = FontWeight.Bold, color = Color.Black)
+            Text(
+                text = "Số dư hiện tại: ",
+                color = TextPrimary,
+                style = Typography.bodyMedium
+            )
+            Text(
+                text = "${(amount - spent).formatAmount()} VND",
+                fontWeight = FontWeight.Bold,
+                color = TextPrimary,
+                style = Typography.headlineMedium
+            )
         }
 
-        HorizontalDivider(thickness = 2.dp)
+        HorizontalDivider(thickness = Dimens.divider_thickness, color = SurfaceVariant)
 
         Row(
             modifier = Modifier
@@ -52,11 +66,19 @@ fun SummaryCard(modifier: Modifier = Modifier, amount: Int = 16000000, spent: In
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            MoneyItem(label = "Thu nhập", amount = "${amount.formatAmount()} VND", isPositive = true)
+            MoneyItem(
+                label = "Thu nhập",
+                amount = "${amount.formatAmount()} VND",
+                isPositive = true
+            )
 
-            VerticalDivider(thickness = 2.dp)
+            VerticalDivider(thickness = Dimens.divider_thickness, color = SurfaceVariant)
 
-            MoneyItem(label = "Chi tiêu", amount = "${spent.formatAmount()} VND", isPositive = false);
+            MoneyItem(
+                label = "Chi tiêu",
+                amount = "${spent.formatAmount()} VND",
+                isPositive = false
+            );
 
         }
     }
@@ -64,16 +86,23 @@ fun SummaryCard(modifier: Modifier = Modifier, amount: Int = 16000000, spent: In
 
 @Composable
 fun MoneyItem(modifier: Modifier = Modifier, label: String, amount: String, isPositive: Boolean) {
+    val amountColor = if (isPositive) IncomeColor else ExpenseColor
+    val sign = if (isPositive) "+" else "-"
+
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(Dimens.spacing_tiny)
     ) {
-        Text(text = label)
-        if (isPositive) {
-            Text(text = "+ $amount", color = Color.Green)
-        } else {
-            Text(text = "- $amount", color = Color.Red)
-        }
+        Text(
+            text = label,
+            color = TextPrimary,
+            style = Typography.bodyMedium
+        )
+        Text(
+            text = "$sign $amount",
+            color = amountColor,
+            style = Typography.bodyLarge
+        )
     }
 }

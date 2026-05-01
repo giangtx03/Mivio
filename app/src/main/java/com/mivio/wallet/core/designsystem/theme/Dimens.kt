@@ -10,7 +10,11 @@ object Dimens {
     val spacing_large = 24.dp      // Khoảng cách giữa các section lớn
     val spacing_xlarge = 32.dp
 
+    val padding_badge_horizontal = 6.dp
+    val padding_badge_vertical = 2.dp
+
     // Corner Radius (Độ bo góc)
+    val radius_tiny = 4.dp
     val radius_small = 8.dp
     val radius_medium = 12.dp      // Dùng cho DropZone, Nút bấm
     val radius_large = 16.dp       // Dùng cho SummaryCard, BottomSheet
@@ -25,4 +29,7 @@ object Dimens {
     // Component Sizes (Kích thước Component cố định)
     val button_height = 56.dp
     val divider_thickness = 1.dp
+    val border_width = 1.dp
+
+    val drop_zone_size = 60.dp
 }
