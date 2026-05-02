@@ -31,5 +31,6 @@ object Dimens {
     val divider_thickness = 1.dp
     val border_width = 1.dp
 
-    val drop_zone_size = 60.dp
+    val drop_zone_size = 90.dp
+    val transaction_height = 60.dp
 }

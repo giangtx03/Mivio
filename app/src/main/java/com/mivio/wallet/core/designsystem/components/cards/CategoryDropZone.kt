@@ -17,24 +17,27 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.mivio.wallet.core.designsystem.theme.CatHouse
 import com.mivio.wallet.core.designsystem.theme.Dimens
 import com.mivio.wallet.core.designsystem.theme.TextPrimary
 import com.mivio.wallet.core.designsystem.theme.Typography
 
+class CategoryDropZoneUiState(
+    val image: ImageVector = Icons.Filled.Home,
+    val category: String = "",
+    val background: Color
+)
+
 @Composable
 fun CategoryDropZone(
     modifier: Modifier = Modifier,
-    backgroundColor: Color,
-    image: ImageVector,
-    category: String
+    state: CategoryDropZoneUiState
 ) {
     Box(
         modifier = modifier
             .size(Dimens.drop_zone_size)
             .clip(RoundedCornerShape(Dimens.radius_medium))
-            .background(backgroundColor),
+            .background(state.background),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -42,11 +45,13 @@ fun CategoryDropZone(
             verticalArrangement = Arrangement.spacedBy(Dimens.spacing_tiny)
         ) {
             Icon(
-                imageVector = image,
-                contentDescription = category,
+                imageVector = state.image,
+                contentDescription = state.category,
                 tint = TextPrimary
             )
-            Text(text = category, color = TextPrimary, style = Typography.labelSmall)
+            if (state.category.isNotEmpty()) {
+                Text(text = state.category, color = TextPrimary, style = Typography.labelSmall)
+            }
         }
     }
 }
@@ -56,8 +61,10 @@ fun CategoryDropZone(
 private fun CategoryDropZonePre() {
     CategoryDropZone(
         modifier = Modifier,
-        backgroundColor = CatHouse,
-        image = Icons.Filled.Home,
-        category = "Thuê nhà"
+        state = CategoryDropZoneUiState(
+            image = Icons.Filled.Home,
+            background = CatHouse,
+            category = "Thuê nhà"
+        )
     )
 }

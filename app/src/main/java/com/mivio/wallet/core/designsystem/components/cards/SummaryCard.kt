@@ -19,10 +19,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.mivio.wallet.core.designsystem.theme.Dimens
+import com.mivio.wallet.core.designsystem.theme.DividerColor
 import com.mivio.wallet.core.designsystem.theme.ExpenseColor
 import com.mivio.wallet.core.designsystem.theme.IncomeColor
 import com.mivio.wallet.core.designsystem.theme.Secondary
-import com.mivio.wallet.core.designsystem.theme.SurfaceVariant
 import com.mivio.wallet.core.designsystem.theme.TextPrimary
 import com.mivio.wallet.core.designsystem.theme.Typography
 import com.mivio.wallet.core.utils.formatAmount
@@ -57,7 +57,7 @@ fun SummaryCard(modifier: Modifier = Modifier, amount: Int = 16000000, spent: In
             )
         }
 
-        HorizontalDivider(thickness = Dimens.divider_thickness, color = SurfaceVariant)
+        HorizontalDivider(thickness = Dimens.divider_thickness, color = DividerColor)
 
         Row(
             modifier = Modifier
@@ -72,7 +72,7 @@ fun SummaryCard(modifier: Modifier = Modifier, amount: Int = 16000000, spent: In
                 isPositive = true
             )
 
-            VerticalDivider(thickness = Dimens.divider_thickness, color = SurfaceVariant)
+            VerticalDivider(thickness = Dimens.divider_thickness, color = DividerColor)
 
             MoneyItem(
                 label = "Chi tiêu",

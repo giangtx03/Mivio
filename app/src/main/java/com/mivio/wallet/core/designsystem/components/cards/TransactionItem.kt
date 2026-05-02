@@ -6,12 +6,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -21,8 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.mivio.wallet.core.designsystem.theme.Dimens
 import com.mivio.wallet.core.designsystem.theme.ExpenseColor
 import com.mivio.wallet.core.designsystem.theme.IncomeColor
@@ -35,27 +37,28 @@ import com.mivio.wallet.core.designsystem.theme.Typography
 import com.mivio.wallet.core.designsystem.theme.WarningBgColor
 import com.mivio.wallet.core.utils.formatAmount
 
+class TransactionItemUiState(
+    val icon: ImageVector = Icons.Rounded.Person,
+    val bankName: String = "",
+    val time: String = "",
+    val amount: Int = 0,
+    val isPositive: Boolean = true
+)
 
 @Composable
 fun TransactionItem(
     modifier: Modifier = Modifier,
-    bankName: String,
-    time: String,
-    amount: Int,
-    isPositive: Boolean
+    state: TransactionItemUiState
 ) {
-    val amountColor = if (isPositive) IncomeColor else ExpenseColor
-    val badgeBgColor = if (isPositive) Secondary else WarningBgColor
-    val sign = if (isPositive) "+" else "-"
-    val typeText = if (isPositive) "Nhận tiền" else "Chuyển tiền"
+    val amountColor = if (state.isPositive) IncomeColor else ExpenseColor
+    val badgeBgColor = if (state.isPositive) Secondary else WarningBgColor
+    val sign = if (state.isPositive) "+" else "-"
+    val typeText = if (state.isPositive) "Nhận tiền" else "Chuyển tiền"
 
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(
-                horizontal = Dimens.spacing_medium,
-                vertical = Dimens.spacing_small
-            ),
+            .height(Dimens.transaction_height),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(Dimens.spacing_medium)
     ) {
@@ -67,7 +70,7 @@ fun TransactionItem(
             contentAlignment = Alignment.Center
         ) {
             Icon(
-                imageVector = Icons.Rounded.Person,
+                imageVector = state.icon,
                 contentDescription = "Bank Logo",
                 tint = TextSecondary
             )
@@ -78,15 +81,15 @@ fun TransactionItem(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.spacedBy(Dimens.spacing_tiny)
         ) {
-            Text(text = bankName, color = TextPrimary, style = Typography.bodyLarge)
-            Text(text = time, color = TextSecondary, style = Typography.labelSmall)
+            Text(text = state.bankName, color = TextPrimary, style = Typography.bodyLarge)
+            Text(text = state.time, color = TextSecondary, style = Typography.labelSmall)
         }
         Column(
             horizontalAlignment = Alignment.End,
             verticalArrangement = Arrangement.spacedBy(Dimens.spacing_tiny)
         ) {
             Text(
-                text = "$sign ${amount.formatAmount()} VND",
+                text = "$sign ${state.amount.formatAmount()} VND",
                 color = amountColor,
                 style = Typography.bodyLarge
             )
@@ -97,7 +100,10 @@ fun TransactionItem(
                 modifier = Modifier
                     .clip(RoundedCornerShape(Dimens.radius_small))
                     .background(badgeBgColor)
-                    .padding(horizontal = Dimens.padding_badge_horizontal, vertical = Dimens.padding_badge_vertical)
+                    .padding(
+                        horizontal = Dimens.padding_badge_horizontal,
+                        vertical = Dimens.padding_badge_vertical
+                    )
             )
         }
         Icon(
@@ -115,8 +121,25 @@ fun TransitionItemPreview(modifier: Modifier = Modifier) {
         modifier = Modifier.background(Color.White),
         verticalArrangement = Arrangement.spacedBy(Dimens.spacing_tiny)
     ) {
-        TransactionItem(Modifier, "VCB", "05/01/2026, 12:00", 10000000, true)
+        TransactionItem(
+            Modifier,
+            state = TransactionItemUiState(
+                Icons.Filled.Person,
+                "VCB",
+                "05/01/2026, 12:00",
+                10000000,
+                true
+            )
+        )
         HorizontalDivider(thickness = Dimens.divider_thickness)
-        TransactionItem(Modifier, "VCB", "05/01/2026, 12:00", 10000000, false)
+        TransactionItem(
+            Modifier, state = TransactionItemUiState(
+                Icons.Filled.Person,
+                "VCB",
+                "05/01/2026, 12:00",
+                10000000,
+                false
+            )
+        )
     }
 }

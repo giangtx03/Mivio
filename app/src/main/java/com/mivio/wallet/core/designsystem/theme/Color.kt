@@ -3,7 +3,7 @@ package com.mivio.wallet.core.designsystem.theme
 import androidx.compose.ui.graphics.Color
 
 // Màu chủ đạo (Brand Colors)
-val Primary = Color(0xFF00BFA5)       // Xanh Mint đậm (Tươi mới, tin cậy)
+val Primary = Color(0xFF96C4CA)       // Xanh Mint đậm (Tươi mới, tin cậy)
 val PrimaryVariant = Color(0xFF008E76)
 val Secondary = Color(0xFFB2DFDB)     // Xanh Mint nhạt (Dùng cho Header, nền phụ)
 
@@ -11,6 +11,7 @@ val Secondary = Color(0xFFB2DFDB)     // Xanh Mint nhạt (Dùng cho Header, n�
 val Background = Color(0xFFF8F9FA)    // Trắng xám (Nền app)
 val Surface = Color(0xFFFFFFFF)       // Trắng tinh (Nền Card, To-do list)
 val SurfaceVariant = Color(0xFFEEEEEE)// Xám nhạt (Đường kẻ divider, nền icon)
+val DividerColor = Color(0xFFC9C9C9)// Xám nhạt (Đường kẻ divider, nền icon)
 
 // Màu Chữ (Typography Colors)
 val TextPrimary = Color(0xFF1D1B20)   // Đen nhạt (Chữ chính, Tiêu đề)
